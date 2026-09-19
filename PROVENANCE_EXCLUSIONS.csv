@@ -1,0 +1,6 @@
+public_workbook_data_row_1_based,spreadsheet_row_including_header,Q39_response,analysis_status,reason
+14,15,"I prefer not to answer",excluded,"Response provenance withheld"
+25,26,"No, I am an AI system answering without role-playing a human",excluded,"Explicit AI-system response"
+72,73,"No, I am an AI system answering without role-playing a human",excluded,"Explicit AI-system response"
+73,74,"Yes, but an AI system generated or substantially rewrote some of my answers",excluded,"Human response substantially generated/rewritten by AI"
+159,160,"I prefer not to answer",excluded,"Response provenance withheld"
