@@ -4,9 +4,26 @@ Independent Python reconstruction for the manuscript **How Software Professional
 
 The program recalculates statistics from respondent-level CSV files. It produces tables, figures, cleaning logs, exact software/input hashes, and a comparison against 150 values transcribed from the reviewed manuscript.
 
+## Download and documentation
+
+The analysis code, configuration files, dependency lists and supporting documentation are distributed in the versioned `agent_survey_replication_v*.zip` packages in the [repository file list](https://github.com/gkusper/AgenticSoftwareEngineering). Always download the package with the highest version number available there. These instructions apply to the latest package without referring to a fixed release number.
+
+[METHODS.md](METHODS.md) is also maintained directly in the repository and can be read on GitHub. The following supporting documents are inside the latest replication ZIP; the paths below are relative to its extracted `agent_survey_replication/` directory:
+
+| File inside the ZIP | Contents |
+|---|---|
+| `dependencies.md` | Required software, input datasets and download instructions |
+| `dependeces.md` | Compatibility pointer to `dependencies.md` under the earlier spelling |
+| `data/sources.json` | Dataset identifiers and checksums |
+| `validation/VALIDATION.md` | Recorded validation checks and limitations |
+
+The ZIP also contains `analysis_pipeline.py`, the `replication/` modules, `scripts/`, `config/`, and the `requirements*.txt` files needed for the commands below. For a specific release's software versions and validation provenance, consult the documentation and run manifests included in that package.
+
 ## Quick start
 
-Use Python 3.13. The validation environment was Python 3.13.5 on Linux.
+Download the latest versioned replication ZIP from the repository file list and extract it. Open a terminal in the extracted `agent_survey_replication/` directory, which contains `analysis_pipeline.py`. Run all commands below from that directory. GitHub's **Code → Download ZIP** downloads a repository snapshot; the versioned replication package within it still needs to be extracted.
+
+Use the Python version and pinned dependencies specified in the extracted package's `dependencies.md`.
 
 ```bash
 python -m venv .venv
@@ -37,7 +54,7 @@ python scripts/download_data.py --dataset survey
 python analysis_pipeline.py --survey data/raw/survey.csv --out results/survey_run
 ```
 
-For the two-dataset analysis, place the **v3 98-row classroom CSV** at `data/raw/classroom.csv`. The exact public classroom file could not be verified. An accompanying **local analysis-input bundle**, when supplied by the authors, contains the tested analysis-only inputs; extract its `data/` directory into this repository. That bundle is separate from the GitHub code archive. Do not run the downloader over those local, minimized files: their byte hashes differ from the full public exports, although the analysis values are unchanged.
+For the two-dataset analysis, place the **v3 98-row classroom CSV** at `data/raw/classroom.csv`. The exact public classroom file could not be verified. An accompanying **local analysis-input bundle**, when supplied by the authors, contains the tested analysis-only inputs; extract its `data/` directory into the extracted `agent_survey_replication/` directory. That bundle is separate from the GitHub code archive. Do not run the downloader over those local, minimized files: their byte hashes differ from the full public exports, although the analysis values are unchanged.
 
 ```bash
 python analysis_pipeline.py --survey data/raw/survey.csv --classroom data/raw/classroom.csv --out results/full_run
@@ -51,7 +68,7 @@ For the optional original-row cleaning replay, use the analysis-only 230-row and
 python analysis_pipeline.py --survey data/raw/survey_raw230.csv --classroom data/raw/classroom_raw103.csv --out results/raw_replay
 ```
 
-All statistical calculations run offline after the packages and inputs have been obtained. No GPU, LLM service, API key, Excel installation, or paid service is needed. Input format and download details are in [dependencies.md](dependencies.md). The requested spelling [dependeces.md](dependeces.md) is retained as a pointer.
+All statistical calculations run offline after the packages and inputs have been obtained. No GPU, LLM service, API key, Excel installation, or paid service is needed. Input format and download details are in `dependencies.md` inside the latest replication ZIP. The package also retains `dependeces.md` as a compatibility pointer.
 
 ## What is calculated
 
@@ -149,6 +166,6 @@ The repository does not upload data, publish results, or push to GitHub. The `.g
 
 ## Reproducibility scope and provenance
 
-Read [METHODS.md](METHODS.md) for exact coding and test families, [data/sources.json](data/sources.json) for source identifiers/checksums, and [validation/VALIDATION.md](validation/VALIDATION.md) for executed checks and limitations. `config/analysis_plan.json` distinguishes manuscript-specified definitions from reconstructed choices. `config/codebook.json` freezes full source headers and response codes; columns are matched by header, not by spreadsheet position.
+Read the repository-level [METHODS.md](METHODS.md) for exact coding and test families. For source identifiers and checksums, open `data/sources.json` inside the latest replication ZIP; for recorded validation checks and limitations, open its `validation/VALIDATION.md`. The configuration paths below also refer to files inside that extracted package. `config/analysis_plan.json` distinguishes manuscript-specified definitions from reconstructed choices. `config/codebook.json` freezes full source headers and response codes; columns are matched by header, not by spreadsheet position.
 
 The software is a new reconstruction prepared with AI assistance. It is not represented as the authors' unavailable original `analysis_pipeline.py`. The manuscript PDF and respondent-level datasets are not included in the GitHub archive. No third-party data license is changed. Before a public release, the maintainers should choose a code license, confirm data-release permission and the classroom DOI, and fill in the final repository URL/version in the citation metadata.
