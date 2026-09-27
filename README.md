@@ -65,8 +65,6 @@ All statistical calculations run offline after the packages and inputs have been
 | Classroom | Three primary Welch comparisons, pooled Cohen's d, mean-difference intervals, Holm adjustment, Mann–Whitney sensitivity, and HC3 baseline-adjusted regressions |
 | Verification of the paper | Machine-readable checks against displayed manuscript values, without using those targets in estimation |
 
-H19's two **composite** correlations are deliberately not computed until their item sets are specified. A separately labelled item-level sensitivity table is available; it is not presented as the H19 composite test. The subjective labels “strongly supported” and “supported” are not assigned by software.
-
 AIDev statistics and practitioner interviews are external/qualitative evidence. They are not newly mined, fitted, or counted by this program.
 
 ## Outputs
