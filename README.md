@@ -4,8 +4,6 @@ Independent Python reconstruction for the manuscript **How Software Professional
 
 The program recalculates statistics from respondent-level CSV files. It produces tables, figures, cleaning logs, exact software/input hashes, and a comparison against 150 values transcribed from the reviewed manuscript.
 
-**Status:** executable and tested on the available professional and classroom datasets, but **not yet an exact reproduction of every manuscript result**. The archived professional data differ from several reported values. Some original composite definitions and analysis choices were not provided. Missing definitions are reported, not guessed or replaced with invented observations. See [AUTHOR_ACTIONS.md](AUTHOR_ACTIONS.md) and the included [validation report](validation/REPORT.md).
-
 ## Quick start
 
 Use Python 3.13. The validation environment was Python 3.13.5 on Linux.
